@@ -33,7 +33,7 @@ Go to start menu and type in cmd to open the comand prompt window. Then, navigat
 
 
 NOTES:
-I attempted to pu in a back button but I couldn't get it to work properly.
+I attempted to put in a back button but I couldn't get it to work properly.
 
 
 References:
