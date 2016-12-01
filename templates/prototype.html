@@ -1,7 +1,14 @@
-{% block content %}
+{% block content %}<!-- Everything between the blocks is the changeable content-->
 
 <!-- Content goes here -->
 <head>
+
+		<button onclick="goBack()">Go Back</button>
+		<script>
+		function goBack() {
+			window.history.back(-1);
+		}
+		</script>
 
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 

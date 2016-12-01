@@ -1,5 +1,4 @@
-
-<!DOCTYPE html>
+<!DOCTYPE html><!-- This page contains the template for every page EG the header, nav bar and footer-->
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -43,36 +42,37 @@
                             {
                                 e.preventDefault();
                                 $(".starter-template").load("/");
-                            });
+                            });//when the indexBtn button is pressed, the index page is loaded
 							
             $("#homeBtn").click(function(e)
                             {
                                 e.preventDefault();
                                 $(".starter-template").load("/home");
-                            });
+                            });//when the homeBtn button is pressed, the home page is loaded
 							
             $("#prototypeBtn").click(function(e)
                             {
                                 e.preventDefault();
                                 $(".starter-template").load("/prototype");
-                            });
+                            });//when the prototypeBtn button is pressed, the prototype page is loaded
 							
             $("#aboutBtn").click(function(e)
                             {
                                 e.preventDefault();
                                 $(".starter-template").load("/about");
-                            });
+                            });//when the aboutBtn button is pressed, the about page is loaded
+							
             $("#contactBtn").click(function(e)
                             {
                                 e.preventDefault();
                                 $(".starter-template").load("/contact");
-                            });
+                            });//when the contactBtn button is pressed, the contact page is loaded
 	
             $("#mapBtn").click(function(e)
                             {
                                 e.preventDefault();
                                 $(".starter-template").load("/map");
-                            });
+                            });//when the mapBtn button is pressed, the map page is loaded
 
           }); 
 
@@ -118,8 +118,18 @@
 <br>
 
       <div class="starter-template" id ="starter-template">
+	  
+		<button onclick="goBack()">Go Back</button>
+		<script>
+		function goBack() {
+			window.history.go(-1);
+		}
+		</script>	  
 
-        {% block content %}  {% endblock %}
+
+
+
+        {% block content %}  {% endblock %}<!-- Text from database will be held between these two blocks -->
       </div>
 	  </br>
 	  </br>
@@ -174,12 +184,12 @@
     <script src="static/plugins/WOW/dist/wow.min.js"></script>
     <!-- GOOGLE MAP -->
     <script src="https://maps.googleapis.com/maps/api/js"></script>
-		<script>
+		<script><!-- Gets the text from the database and puts it in the starter-template div between the blocks above-->
 		
-		var TKDiv1 = document.getElementById("starter-template");	
-		var databaseRequest = new XMLHttpRequest();
-		databaseRequest.open('GET', 'http://127.0.0.1:5984/Tkdb/89ab0ecf-4e3a-4703-863a-f7b0d11e8a71');
-		databaseRequest.onload = function() {
+		var TKDiv1 = document.getElementById("starter-template");//takes whats in the variable TKdiv1 and puts the data into starter-template
+		var databaseRequest = new XMLHttpRequest();//requesting access to the database
+		databaseRequest.open('GET', 'http://127.0.0.1:5984/Tkdb/89ab0ecf-4e3a-4703-863a-f7b0d11e8a71');//database URL
+		databaseRequest.onload = function() {//onload, run function renderHTML1
 
 		var databaseData = JSON.parse(databaseRequest.responseText);
 		renderHTML1(databaseData);
@@ -190,10 +200,10 @@
 
 		databaseRequest.send();
 
-		function renderHTML1(databaseData){
+		function renderHTML1(databaseData){//renders the database
 
-		  var Data = "<p><br>" + databaseData.pck1 + "<p>";
-		  TKDiv1.insertAdjacentHTML('beforeend', Data);
+		  var Data = "<p><br>" + databaseData.pck1 + "<p>";//gets data from the database(pkt1) and puts it into the variable data
+		  TKDiv1.insertAdjacentHTML('beforeend', Data);//inserts the data in data into TKDIV1
 			
 		}
 
