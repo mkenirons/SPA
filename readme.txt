@@ -33,7 +33,7 @@ Go to start menu and type in cmd to open the comand prompt window. Then, navigat
 
 
 NOTES:
-I tries to put comments in tehe server.py page but it caused a problme with my website.
+I attempted to pu in a back button but I couldn't get it to work properly.
 
 
 References:
