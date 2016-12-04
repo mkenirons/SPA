@@ -129,7 +129,7 @@
 
 
 
-        {% block content %}  {% endblock %}<!-- Text from database will be held between these two blocks -->
+        {% block content %}  {% endblock %}<!-- Text from database will be held between these two jinja blocks -->
       </div>
 	  </br>
 	  </br>
@@ -187,11 +187,11 @@
 		<script><!-- Gets the text from the database and puts it in the starter-template div between the blocks above-->
 		
 		var TKDiv1 = document.getElementById("starter-template");//takes whats in the variable TKdiv1 and puts the data into starter-template
-		var databaseRequest = new XMLHttpRequest();//requesting access to the database
+		var databaseRequest = new XMLHttpRequest();//requesting access to the database using asyncronous http request.
 		databaseRequest.open('GET', 'http://127.0.0.1:5984/Tkdb/89ab0ecf-4e3a-4703-863a-f7b0d11e8a71');//database URL
 		databaseRequest.onload = function() {//onload, run function renderHTML1
 
-		var databaseData = JSON.parse(databaseRequest.responseText);
+		var databaseData = JSON.parse(databaseRequest.responseText);// parses the returned object as json.
 		renderHTML1(databaseData);
 		renderHTML2(databaseData);
 		renderHTML3(databaseData);
@@ -213,7 +213,7 @@
 
 		function renderHTML2(databaseData){
 
-		  var Data = "<p><br>" + databaseData.pck2 + "<p>";
+		  var Data = "<p><br>" + databaseData.pck2 + "<p>";// selects the key pkt2 from the databaseData json object. 
 		TKDiv2.insertAdjacentHTML('beforeend', Data);
 		
 		}
